@@ -21,17 +21,19 @@ cat /etc/selinux/config
 
 Example output:
 
-> &#8203;# This file controls the state of SELinux on the system.
-> &#8203;# SELINUX= can take one of these three values:
-> &#8203;#     enforcing - SELinux security policy is enforced.
-> &#8203;#     permissive - SELinux prints warnings instead of enforcing.
-> &#8203;#     disabled - No SELinux policy is loaded.
-> SELINUX=permissive
-> &#8203;# SELINUXTYPE= can take one of three values:
-> &#8203;#     targeted - Targeted processes are protected,
-> &#8203;#     minimum - Modification of targeted policy. Only selected processes are protected.
-> &#8203;#     mls - Multi Level Security protection.
-> SELINUXTYPE=targeted
+```bash
+# This file controls the state of SELinux on the system.
+# SELINUX= can take one of these three values:
+#     enforcing - SELinux security policy is enforced.
+#     permissive - SELinux prints warnings instead of enforcing.
+#     disabled - No SELinux policy is loaded.
+SELINUX=permissive
+# SELINUXTYPE= can take one of three values:
+#     targeted - Targeted processes are protected,
+#     minimum - Modification of targeted policy. Only selected processes are protected.
+#     mls - Multi Level Security protection.
+SELINUXTYPE=targeted
+```
 
 #### 2
 
@@ -41,15 +43,17 @@ Example output:
 
 Example output:
 
-> SELinux status:                 enabled
-> SELinuxfs mount:                /sys/fs/selinux
-> SELinux root directory:         /etc/selinux
-> Loaded policy name:             targeted
-> Current mode:                   permissive
-> Mode from config file:          permissive
-> Policy MLS status:              enabled
-> Policy deny_unknown status:     allowed
-> Max kernel policy version:      31
+```bash
+SELinux status:                 enabled
+SELinuxfs mount:                /sys/fs/selinux
+SELinux root directory:         /etc/selinux
+Loaded policy name:             targeted
+Current mode:                   permissive
+Mode from config file:          permissive
+Policy MLS status:              enabled
+Policy deny_unknown status:     allowed
+Max kernel policy version:      31
+```
 
 #### 3
 
@@ -59,7 +63,7 @@ Example output:
 
 Example output:
 
-> Permissive
+`Permissive`
 
 ## How Does SELinux Work?
 
@@ -139,11 +143,12 @@ ps axZ | grep [h]ttpd
 
 Output:
 
-> system_u:system_r:httpd_t:s0     1230 ?        Ss     0:00 /usr/sbin/httpd -DFOREGROUND
-> system_u:system_r:httpd_t:s0     1231 ?        S      0:00 /usr/sbin/httpd -DFOREGROUND
-> system_u:system_r:httpd_t:s0     1232 ?        S      0:00 /usr/sbin/httpd -DFOREGROUND
-> system_u:system_r:httpd_t:s0     1233 ?        S      0:00 /usr/sbin/httpd -DFOREGROUND
-> system_u:system_r:httpd_t:s0     1234 ?        S      0:00 /usr/sbin/httpd -DFOREGROUND
-> system_u:system_r:httpd_t:s0     1235 ?        S      0:00 /usr/sbin/httpd -DFOREGROUND
-
+```bash
+system_u:system_r:httpd_t:s0     1230 ?        Ss     0:00 /usr/sbin/httpd -DFOREGROUND
+system_u:system_r:httpd_t:s0     1231 ?        S      0:00 /usr/sbin/httpd -DFOREGROUND
+system_u:system_r:httpd_t:s0     1232 ?        S      0:00 /usr/sbin/httpd -DFOREGROUND
+system_u:system_r:httpd_t:s0     1233 ?        S      0:00 /usr/sbin/httpd -DFOREGROUND
+system_u:system_r:httpd_t:s0     1234 ?        S      0:00 /usr/sbin/httpd -DFOREGROUND
+system_u:system_r:httpd_t:s0     1235 ?        S      0:00 /usr/sbin/httpd -DFOREGROUND
+```
 
