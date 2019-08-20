@@ -2,9 +2,14 @@
 
 A list of demonstrations to show SELinux in action.
 
+Sources:
+- [Security-Enhanced Linux for mere mortals](https://www.youtube.com/watch?v=_WOKRaM-HI4&t=616s)
+
 ## Some simple SELinux commands to check it's status
 
 ### Check what policy your system is set to use:
+
+On the server I'm using at the time, the policy is set to permissive ie, not enforcing
 
 #### 1
 
@@ -55,3 +60,5 @@ Example output:
 Example output:
 
 > Permissive
+
+## How Does SELinux Work?
