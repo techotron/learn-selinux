@@ -62,3 +62,18 @@ Example output:
 > Permissive
 
 ## How Does SELinux Work?
+
+2 concepts involved, 
+
+- Labelling
+- Type Enforcement
+
+### Labelling
+
+Files, processes, ports etc are all labelled with an SELinux context. For files and directories, these are stored as extended attributes on the filesystem. For processes, ports etc - the kernel managed these labels.
+
+labels are in the format of
+
+`user:role:type:level(optional)`
+
+
