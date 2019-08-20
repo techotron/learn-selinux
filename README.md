@@ -76,4 +76,17 @@ Labels are in the format of
 
 `user:role:type:level(optional)`
 
+## Example - Simple Apache Server
+
+- httpd (Apache) runs from a binary executable launched from /usr/sbin.
+- If you look at that file's SELinux context, you see that its type is `httpd_exec_t`
+
+```bash
+ls -lZ /usr/sbin/httpd
+```
+
+Output:
+
+> -rwxr-xr-x. root root system_u:object_r:httpd_exec_t:s0 /usr/sbin/httpd
+
 
