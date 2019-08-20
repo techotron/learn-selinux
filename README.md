@@ -89,4 +89,61 @@ Output:
 
 > -rwxr-xr-x. root root system_u:object_r:httpd_exec_t:s0 /usr/sbin/httpd
 
+This shows it's labelled with `httpd_exec_t`. 
+
+If we look at the httpd's server configuration directory, we'll see it's labelled with `httpd_config_t`
+
+```bash
+ls -dZ /etc/httpd/
+```
+
+Output: 
+
+> drwxr-xr-x. root root system_u:object_r:httpd_config_t:s0 /etc/httpd/
+
+And if we look at the log directory, we'll see it's labelled with `httpd_logs_t`
+
+```bash
+ls -dZ /var/log/httpd/
+```
+
+Output: 
+
+> drwx------. root root system_u:object_r:httpd_log_t:s0 /var/log/httpd
+
+And the content is `httpd_sys_content_t`:
+
+```bash
+ls -dZ /var/www/html/
+```
+
+Output: 
+
+> drwxr-xr-x. root root system_u:object_r:httpd_sys_content_t:s0 /var/www/html/
+
+The startup script:
+
+```bash
+ls -lZ /usr/lib/systemd/system/httpd.service
+```
+
+Output:
+
+> -rw-r--r--. root root system_u:object_r:httpd_unit_file_t:s0 /usr/lib/systemd/system/httpd.service
+
+The process running in memory also has an SELinux label associated with it, `httpd_t`:
+
+```bash
+ps axZ | grep [h]ttpd
+```
+
+Output:
+
+> system_u:system_r:httpd_t:s0     1230 ?        Ss     0:00 /usr/sbin/httpd -DFOREGROUND
+> system_u:system_r:httpd_t:s0     1231 ?        S      0:00 /usr/sbin/httpd -DFOREGROUND
+> system_u:system_r:httpd_t:s0     1232 ?        S      0:00 /usr/sbin/httpd -DFOREGROUND
+> system_u:system_r:httpd_t:s0     1233 ?        S      0:00 /usr/sbin/httpd -DFOREGROUND
+> system_u:system_r:httpd_t:s0     1234 ?        S      0:00 /usr/sbin/httpd -DFOREGROUND
+> system_u:system_r:httpd_t:s0     1235 ?        S      0:00 /usr/sbin/httpd -DFOREGROUND
+
 
