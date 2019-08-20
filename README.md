@@ -4,7 +4,9 @@ A list of demonstrations to show SELinux in action.
 
 ## Some simple SELinux commands to check it's status
 
-1. Check what policy your system is set to use:
+### Check what policy your system is set to use:
+
+#### 1
 
 ```bash
 cat /etc/selinux/config
@@ -26,6 +28,8 @@ Example output:
 > &#8203;#     mls - Multi Level Security protection.
 > SELINUXTYPE=targeted
 
+#### 2
+
 ```bash
 /usr/sbin/sestatus
 ```
@@ -41,6 +45,8 @@ Example output:
 > Policy MLS status:              enabled
 > Policy deny_unknown status:     allowed
 > Max kernel policy version:      31
+
+#### 3
 
 ```bash
 /usr/sbin/getenforce
